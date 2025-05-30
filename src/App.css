@@ -35,4 +35,42 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.app-nav {
+  background-color: #333;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.app-nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.app-nav li {
+  margin: 0 10px;
+}
+
+.app-nav button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.app-nav button:hover {
+  background-color: #555;
+}
+
+.app-nav button.active {
+  background-color: #4caf50;
+  font-weight: bold;
 } 

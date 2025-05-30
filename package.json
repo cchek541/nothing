@@ -13,6 +13,9 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-router-dom": "5.3.3",
     "@types/styled-components": "^5.1.34",
+    "cors": "2.8.5",
+    "dotenv": "10.0.0",
+    "express": "4.17.1",
     "lucide-react": "^0.511.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,15 +23,20 @@
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.18",
     "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "ts-node": "10.9.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "DANGEROUSLY_DISABLE_HOST_CHECK=true react-scripts start",
     "build": "react-scripts build && touch build/.nojekyll",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "server": "nodemon --exec ts-node server/src/index.ts",
+    "dev": "concurrently \"yarn start\" \"yarn server\"",
+    "build:server": "tsc -p server/tsconfig.json",
+    "start:prod": "NODE_ENV=production node server/dist/index.js"
   },
   "eslintConfig": {
     "extends": [
@@ -49,6 +57,14 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "concurrently": "7.0.0",
+    "gh-pages": "^4.0.0",
+    "nodemon": "2.0.15"
+  },
+  "proxy": "http://localhost:9090",
+  "engines": {
+    "node": ">=16.0.0"
   }
 }
