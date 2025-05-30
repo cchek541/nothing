@@ -9,14 +9,13 @@ interface DataItem {
 
 // Function to determine the API base URL based on the environment
 const getApiBaseUrl = () => {
-  // In development, the proxy will forward requests to the local server
-  if (process.env.NODE_ENV === 'development') {
-    return '';
-  }
-  // In production, use the deployed Render backend URL
-  // Replace this with your actual Render URL once deployed
-  return 'https://your-render-app-name.onrender.com';
-};
+    // In development, the proxy will forward requests to the local server
+    if (process.env.NODE_ENV === 'development') {
+      return '';
+    }
+    // In production, use the deployed Render backend URL
+    return 'https://nothing-ezw4.onrender.com';
+  };
 
 const ApiDemo: React.FC = () => {
   const [data, setData] = useState<DataItem[]>([]);
